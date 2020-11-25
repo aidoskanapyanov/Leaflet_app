@@ -1,11 +1,10 @@
 ---
-title: "map"
-author: "Aidos Kanapyanov"
-date: "25 11 2020"
 output: html_document
 ---
 
-```{r, eval=FALSE, echo=FALSE}
+# 25 Novermber, 2020
+
+```{r, echo=FALSE, warning=FALSE}
 library(leaflet)
 locations <- data.frame(lat = c(43.242532, 43.235509),
                         lng = c(76.912055, 76.936648))
@@ -19,10 +18,8 @@ icons <- makeIcon(
 
 my_map <- locations %>% 
   leaflet() %>% 
-  # addTiles() %>%
-  addTiles('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png') %>% 
+  addTiles() %>% 
   addMarkers(popup=c("Люблю тебя, жаным <3", "Любимая моя тут :)"),
-             icon = icons) %>% 
-  addProviderTiles(providers$CartoDB.Positron)  
+             icon = icons)
 my_map
 ```
